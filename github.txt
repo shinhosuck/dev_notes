@@ -1,0 +1,16 @@
+CREATE A NEW REPOSITORY ON THE COMMAND LINE:
+note: create a foloder initiate git.
+    echo "# dev-notes2" >> README.md
+    git init
+    git add README.md
+    git commit -m "first commit"
+    git branch -M main
+    git remote add origin https://github.com/shinhosuck/dev-notes2.git
+    git push -u origin main
+
+
+PUSH TO GIT REPOSITORY:
+note: once the changes has been made to the directory.
+    git add . 
+    git commit -m "update"
+    git push -u origin main
