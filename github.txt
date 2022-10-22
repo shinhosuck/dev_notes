@@ -5,7 +5,7 @@ note: create a foloder initiate git.
     git add README.md
     git commit -m "first commit"
     git branch -M main
-    git remote add origin https://github.com/shinhosuck/dev-notes2.git
+    git remote add origin https://github.com/shinhosuck/some_project.git
     git push -u origin main
 
 
@@ -14,3 +14,6 @@ note: once the changes has been made to the directory.
     git add . 
     git commit -m "update"
     git push -u origin main
+
+CLONE REPOSITORY:
+    git clone https://github.com/shinhosuck/some_project.git
