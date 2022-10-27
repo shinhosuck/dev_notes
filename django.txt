@@ -1,4 +1,4 @@
-DJANGO ORM(object-relational mapper):
+PART1. DJANGO ORM(object-relational mapper):
     Definition: converting data between incomaptible
                 type systems using object-oriented
                 programming languages.
@@ -6,16 +6,23 @@ DJANGO ORM(object-relational mapper):
                 and creates relational
                 mapping across the database(sql).
 
-DJANGO |(or staement) QUERY:
+PART2. DJANGO |(or staement) QUERY:
+from orm.models import Student
+
+    Data from SQL:
+        students = Student.objects.all()
+        print(students.query)
+        print(connection.queries)
     Example:
         students = Student.objects.filter(first_name_startswith="Eric") |
-            Student.objects.filter(first_name_startswith="Jack") |
-            Student.objects.filter(first_name_startswith="James")
+            Student.objects.filter(first_name__startswith="Jack") |
+            Student.objects.filter(first_nam__startswith="James")
 
         *simpler way:
         students = Student.object.filter(Q(first_name_startswith="Eric") |
-            Q(first_name_startswith="Jack") |
-            Q(first_name_startswith="James"))
+            Q(first_name__startswith="Jack") |
+            Q(first_name__startswith="James"))
 
         *extra:
             ~(not statement)
+            __(dunther)
