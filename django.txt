@@ -29,3 +29,26 @@ PART2. DJANGO |(or staement) QUERY:
             __(dunther)
 
 PART3. &(and) query:
+    from orm.models import Student
+    from django.db.models import Q
+    from django.db import connection
+
+    students = Student.objects.filter(Q(first_name__startswith='J') & Q(age=20))
+    *what this is saying is that the first names/name starts "J" and ages/age is 20.
+    *the first statement and the last statement have to be TRUE, or else, it will give empty list.
+
+    print(connection.queries)
+    print(students.query)
+
+PART4. UNION QUERIES:
+    from orm.models import Student, Teacher
+
+    IMPORTANT TOPICS:
+        value_list()-gives LIST/[], value()-gives DICTIONARY/{}, union()
+
+    IMPORTANT RULE TO REMEMBER:
+        students_and_teachers = Student.objects.all().value_list('last_name').union(Teacher.objects.all().value_list('last_name'))
+        *same 2 last name will not show, only shows one name-last name "Doe" and "Doe", only one "Doe" will show.
+        *must be same data types and fields.
+
+PART5. NOT QUERY:
