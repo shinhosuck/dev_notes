@@ -7,7 +7,8 @@ PART1. DJANGO ORM(object-relational mapper):
                 mapping across the database(sql).
 
 PART2. DJANGO |(or staement) QUERY:
-from orm.models import Student
+    from orm.models import Student
+    from django.db.models import Q
 
     Data from SQL:
         students = Student.objects.all()
@@ -26,3 +27,5 @@ from orm.models import Student
         *extra:
             ~(not statement)
             __(dunther)
+
+PART3. &(and) query:
