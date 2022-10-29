@@ -52,3 +52,4 @@ PART4. UNION QUERIES:
         *must be same data types and fields.
 
 PART5. NOT QUERY:
+    *exclude()
