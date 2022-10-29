@@ -53,3 +53,11 @@ PART4. UNION QUERIES:
 
 PART5. NOT QUERY:
     *exclude()
+    *~Q()-not
+    Django logical statements:
+        gt = >
+        gte = >=
+        lt = <
+        lte = <=
+    Note: when using django logical statements,
+        need to use DUNDER(__, double-underscore) infront of the statement.
