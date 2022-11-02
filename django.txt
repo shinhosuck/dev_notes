@@ -61,3 +61,28 @@ PART5. NOT QUERY:
         lte = <=
     Note: when using django logical statements,
         need to use DUNDER(__, double-underscore) infront of the statement.
+
+PART6. FIELD SELECTION AND OUTPUT:
+    *only()
+    students = Student.objects.filter(class_room=2).only('first_name')
+    -for some reason only() does not work.
+
+PART7. RAW QUERIES:
+    student = Student.objects.raw('SELECT * FROM orm_student WHERE age=25')
+
+PART8. CUSTOM SQL:
+    *needs "connection" from django.db import connection
+    *cursor = connection.cursor()
+    *cursor.execute('SELECT first_name,last_name, age FROM orm_student WHERE age=25')
+    *data = cursor.fetchone() or cursor.fetchall()
+
+    new_list = []
+    for d in data:
+        f_name = d[0]
+        l_name = d[1]
+        a = d[2]
+        new_list.append(dict(first_name=f_name, last_name=l_name, age=a))
+
+
+
+
