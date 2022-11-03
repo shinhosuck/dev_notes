@@ -114,3 +114,35 @@ PART8. CUSTOM SQL:
                 'dictfetchall': dictfetchall
             }
             return render(request, 'orm/custom_sql.html', context)
+
+PART9. MODEL INHERITANCE:
+    *3 Django Inheritance(models) Options:
+        1. Abtract models
+        2. Multi-table model inheritance
+        3. Proxy models
+
+    1. Abtract Models(Abtract Base Classes - ABC):
+
+        *This class does not get get created in the database
+        class ABC(model.Model):
+            title = models.Charfield()
+            date_created = models.DateTimeFiled()
+
+            class Meta:
+                abtract = True
+
+        class Child(ABC):
+            content = models.TextFiled()
+
+            class Meta(ABC.Meta):
+                verbose_name = 'Child'
+
+        *Used:
+            -when you have common information needed for number of other models
+        *ABC this class does not get created:
+            -fields added to other chils classes(models)
+
+    2. Multi-table model inheritance:
+        *Differences:
+            -every model is a model all by itself
+            -one-to-one link is created automatically
