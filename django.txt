@@ -76,13 +76,41 @@ PART8. CUSTOM SQL:
     *cursor.execute('SELECT first_name,last_name, age FROM orm_student WHERE age=25')
     *data = cursor.fetchone() or cursor.fetchall()
 
-    new_list = []
-    for d in data:
-        f_name = d[0]
-        l_name = d[1]
-        a = d[2]
-        new_list.append(dict(first_name=f_name, last_name=l_name, age=a))
+    *CREATE PYTHON DICTIONARY:
+        def cutom_sql(request):
+            cursor = connection.cursor()
+            cursor.execute('SELECT first_name, last_name, age, class_room WHERE orm_student FROM age=25')
+            data = cursor.fetchall()
+
+            new_list = []
+            for d in data:
+                f_name = d[0]
+                l_name = d[1]
+                a = d[2]
+                cl = d[3]
+                new_list.append(dict(first_name=f_name, last_name=l_name, age=a, classroom=cl))
+
+            context = {
+                'new_list': new_list
+            }
+            return render(request, 'orm/custom_sql.html', context)
 
 
 
+    *DEFAULT DJANGO WAY:
+        def dictfetchall(cursor):
+            desc = cursor.description
+            return [
+                dict(zip([col[0] for col in desc], row))
+                for row in cursor.fetchall()
+            ]
 
+
+        def cutom_sql(request):
+            cursor = connection.cursor()
+            cursor.execute('SELECT first_name, last_name, age, class_room WHERE orm_student FROM age=25')
+            dictfetchall_call = dictfetchall(cursor)
+            context = {
+                'dictfetchall': dictfetchall
+            }
+            return render(request, 'orm/custom_sql.html', context)
