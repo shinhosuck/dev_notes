@@ -146,3 +146,4 @@ PART9. MODEL INHERITANCE:
         *Differences:
             -every model is a model all by itself
             -one-to-one link is created automatically
+----------------NEEDS MORE WORK----------------------------
