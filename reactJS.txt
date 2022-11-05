@@ -11,7 +11,7 @@ CREATE REACT APP COMMAND-go to project dir:
 1. This will install NPM(node package manager) locally.
 install: sudo npm i -g create-react-app "create folder"->react-app will be created inside of the folder-name could be anything
 
-2. This will install NPX(node package execute)-it will grab the modules/application(better way).
+2. This will install NPX(node package execute)-it will grab the modules/application from repo(better way).
 install: sudo npx i -g create-react-app "create folder"->react-app will be created inside of the folder-name could be anything
 
 Node.js Current:
