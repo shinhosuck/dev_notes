@@ -115,6 +115,8 @@ PART8. CUSTOM SQL:
             }
             return render(request, 'orm/custom_sql.html', context)
 
+----------------NEEDS MORE WORK--COMEBACK LATER----------------------------
+
 PART9. MODEL INHERITANCE:
     *3 Django Inheritance(models) Options:
         1. Abtract models
@@ -146,4 +148,12 @@ PART9. MODEL INHERITANCE:
         *Differences:
             -every model is a model all by itself
             -one-to-one link is created automatically
-----------------NEEDS MORE WORK----------------------------
+
+----------------NEEDS MORE WORK--COMEBACK LATER----------------------------
+
+
+----------------PASS FOR NOW--COMEBACK LATER----------------------------
+
+PART10. TOWARDS OPTIMIZATION
+
+----------------PASS FOR NOW--COMEBACK LATER----------------------------
