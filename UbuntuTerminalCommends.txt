@@ -1,0 +1,11 @@
+COPY FOLDER TO EXTERNAL DRIVE FOLDER:
+cp -R 'folder name' /media/anderson/'WD Easystore'/'new folder name'
+
+CURRENT DIRECTORY:
+pwd
+
+CREATE FOLDER:
+mkdir 'folder name'
+
+CREATE TEXT FILE:
+echo 'some text' folder-name.txt
