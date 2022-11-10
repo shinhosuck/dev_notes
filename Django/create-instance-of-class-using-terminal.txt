@@ -1,0 +1,26 @@
+OPEN DJANGO SHELL
+    commend:python3 manage.py shell
+
+IMPORT CLASS FROM APP MODELS.PY:
+    from article.models import Article
+    1. Needs save() method:
+        a = Article(title='Hello World', content='article content')
+        a.save()
+
+    2. Does not need save() method:
+        b = Article.objects.create(title='Hello World 2', content='article content')
+
+    Query aricle from database:
+        articles = Article.objects.all()
+        -gets all articles
+
+        article = Article.objects.get(pk=1)
+        -gets article id=1
+
+        article = Article.objects.filter(title="Hello World")
+        -gets all the articles with "Hello World" as title
+
+        article = Article.objects.filter(title="Hello World").first()
+        -gets the first article with "Hello World" as title
+
+NEXT VIDEO-16

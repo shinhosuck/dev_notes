@@ -1,0 +1,27 @@
+CREATE PYTHON VIRTUAL ENVIRONMENT:
+    commend: python3 -m venv venv
+
+INSTALL DJANGO:
+    commend:python3 -m pip install django==3.2 or django(latest-version) or
+            pip3 install django==3.2 or django(lates-version)
+
+START DJANGO PROJECT:
+    commend:python3 -m django startproject new_project . or
+            django-admin startproject new_project .
+
+CREATE REQUIREMENTS TEXT FILE:
+    commend:python3 -m pip freeze > requirements.txt or
+            pip3 freeze requirements.txt
+
+INSTALLING FROM REQUIREMENTS TEXT FILE:
+    commend:pip3 install -r requirements.txt
+
+STARTING AN APP:
+    commend:python3 manage.py startapp appname
+
+MAKE MIGRATIONS AND MIGRATE:
+    commend:python3 manage.py makemigrations
+            -on new model class creation and modification
+    commend:python3 manage.py migrate
+            -when updating database
+            -after performing makemigrations
