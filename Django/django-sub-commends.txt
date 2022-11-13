@@ -1,6 +1,7 @@
 ACCESSING DJANGO SUB-COMMENDS:
     1. python3 -m django
-    2. django-admin sub-commends
+    2. django-admin
+    3. python3 manage.py- this commend shows "[auth]"
 
     *These commends can be used with 'python manage.py commend'
     	dumpdata

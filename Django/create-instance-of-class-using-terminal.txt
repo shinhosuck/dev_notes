@@ -23,4 +23,4 @@ IMPORT CLASS FROM APP MODELS.PY:
         article = Article.objects.filter(title="Hello World").first()
         -gets the first article with "Hello World" as title
 
-NEXT VIDEO-16
+
