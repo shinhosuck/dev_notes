@@ -20,15 +20,17 @@ my_func('cat', 'dog', 'rat')
 a = 1
 b = 'hello'
 data = None
-try:
-    data = my_list[4]
-except:
-    # data = None
-    pass
 
-if data:
-    print(data)
+
+try:
+    data = my_list[5]
+except IndexError as e:
+   print(e)
 else:
-    print("no data")
-# print(is_instance)
-# Next Video 21 and 23
+    print(data)
+finally:
+    print('Loading data .......')
+# else:
+#     print("no data")
+# # print(is_instance)
+# # Next Video 21 and 26
