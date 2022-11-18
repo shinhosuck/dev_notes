@@ -1,3 +1,5 @@
 from django.template.loader import render_to_string
 from django.http import HttpResponse
--render_to_string()
+
+1. render_to_string()
+2. clean_data()

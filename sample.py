@@ -33,4 +33,6 @@ finally:
 # else:
 #     print("no data")
 # # print(is_instance)
-# # Next Video 21 and 27
+
+# Important-- go back and see video 27
+# # Next Video 21 and 30
