@@ -1,3 +1,6 @@
+Important = 'go back and see video 27'
+Next_Video = '21 and 30'
+
 # l = {'a':10, 'b':20}
 # # print('{a}, {b}'.format(**l))
 
@@ -33,10 +36,6 @@
 # else:
 #     print("no data")
 # # print(is_instance)
-
-# Important-- go back and see video 27
-# # Next Video 21 and 30
-
 
 # PYTHON OOP TUTORIALS
 # CLASS AND INSTANCES
