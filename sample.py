@@ -65,7 +65,6 @@ class Employee:
         # number of instances-when '__init__' method is initialized.
         Employee.num_of_emp +=1
 
-    # class method
     def full_name(self):
         emp_fullname = '{0} {1}'.format(self.first, self.last)
         return emp_fullname
@@ -79,13 +78,39 @@ class Employee:
         # also can use class 'Employee.raise_amount'.
         return montly_salary
 
+    # class method with decorator
     @classmethod
     def set_raise_amount(cls, amount):
         cls.raised_amount = amount
 
+    @classmethod
+    def from_emp_string(cls, emp_str):
+        first, last, salary, age, pro_lang= emp_str.split('-')
+        new_emp = cls(first, last, salary, age, pro_lang)
+        return new_emp
+
+    @staticmethod
+    def is_pay_day(date):
+        if date.weekday() == 2:
+            return True
+        return False
+
+class Developer(Employee):
+
+    def __init__(self, first, last, pay, age, pro_lang):
+        super().__init__(first, last, pay, age)
+        # Employee.__init__(self, first, last, pay, age)
+
+        self.pro_lang = pro_lang
+
 # these are instances of a class --> Employee
-emp1 = Employee('Jack', 'Smith', 50000, 33)
-emp2 = Employee('Dan', 'Jackson', 50000, 45)
+emp1 = Developer('Jack', 'Smith', 50000, 33, 'python')
+emp2 = Developer('Dan', 'Jackson', 50000, 45, 'C++')
+
+print(emp1.full_name())
+print(Employee.full_name(emp2))
+print(emp1.email)
+print(emp2.email)
 
 # creating instances variable/attributes maually is redundent and bad way
 # instead use 'def __init__(self) method'
@@ -100,33 +125,35 @@ emp2 = Employee('Dan', 'Jackson', 50000, 45)
 # instance variables = employee's first_name, last_name, age and so forth ---> these are alll unique and
 # and each instance is unique.
 
-# print(emp1.email)
-# print(emp2.email)
-
-# using class method/function to get emp's full name and etc...
-print(emp1.full_name())
-
-# using class to get emp's full name
-# this is what is happening in the back of python
-print(Employee.full_name(emp2))
-
 # CLASS VARIABLE
 # -class variables are shared by each instances,
 # which means that each instances get same variable with data attatched to it.
 # -instance variables are unique for each instances
 
-print(emp1.apply_raise())
 print(Employee.num_of_emp)
-print(emp1.num_of_emp)
-Employee.num_of_emp = 1.05
 print('Monthly salary:' + str(emp1.apply_raise()))
-print(Employee.num_of_emp)
 Employee.raised_amount = 1.00
 print('Monthly salary:' + str(emp1.apply_raise()))
 
 # CLASS METHOD AND STATIC MEHTOD:
 emp1.raised_amount = 1.10
+
+# class method
 Employee.set_raise_amount(1.05)
 
 print(emp1.raised_amount)
 print(emp2.raised_amount)
+
+# class method as constructor
+emp3_string = 'Don-Julio-60000-45-JS'
+emp3 = Developer.from_emp_string(emp3_string)
+
+print(emp3.first)
+
+# static method
+import datetime
+date = datetime.date(2022, 11, 23)
+pay_date = Employee.is_pay_day(date)
+print(pay_date)
+
+# CLASS INHERITANCE
