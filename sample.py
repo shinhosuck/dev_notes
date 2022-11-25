@@ -1,6 +1,8 @@
 Important = 'go back and see video 27'
 Next_Video = '21 and 30, 36, 37'
 
+import sample2
+print(sample2.str_func())
 # l = {'a':10, 'b':20}
 # # print('{a}, {b}'.format(**l))
 
