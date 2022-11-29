@@ -1,5 +1,10 @@
-Important = 'go back and see video 27'
-Next_Video = '21 and 30, 36, 37, 39'
+'''
+NEED TO KNOW MORE:
+    Important = 'go back and see video 27'
+    Next_Video = 21 and 30, 35-45
+    test, slug
+
+'''
 
 import sample2
 print(sample2.str_func())
