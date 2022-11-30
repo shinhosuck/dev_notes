@@ -8,16 +8,24 @@ note: create a foloder initiate git.
     git remote add origin https://github.com/shinhosuck/some_project.git
     git push -u origin main
 
-push an existing repository from the command line:
-git remote add origin https://github.com/shinhosuck/try-django.git
-git branch -M main
-git push -u origin main
+
+PUSH AN EXISTING REPOSITORY FROM THE COMMAND LINE:
+    git remote add origin https://github.com/shinhosuck/try-django.git
+
+----IMPORTANT---
+sometimes bottom script does not work:
+-if does not work, just 'PUSH TO GIT REPOSITORY' in the bottom.
+
+    git branch -M main
+    git push -u origin main
+
 
 PUSH TO GIT REPOSITORY:
 note: once the changes has been made to the directory.
     git add . 
     git commit -m "update"
     git push -u origin main
+
 
 CLONE REPOSITORY:
     git clone https://github.com/shinhosuck/some_project.git
