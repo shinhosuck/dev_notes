@@ -25,3 +25,69 @@ MAKE MIGRATIONS AND MIGRATE:
     commend:python3 manage.py migrate
             -when updating database
             -after performing makemigrations
+
+SETTINGS IN DJANGO:
+    1.add your apps:
+        INSTALLED_APPS = [
+            'django.contrib.admin',
+            'django.contrib.auth',
+            'django.contrib.contenttypes',
+            'django.contrib.sessions',
+            'django.contrib.messages',
+            'django.contrib.staticfiles',
+            # MY APPS
+            "music.apps.MusicConfig",
+            "users.apps.UsersConfig",
+            "crispy_forms"
+        ]
+
+    2.if the template is in the base of the project:
+            TEMPLATES = [
+                {
+                    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+                    'DIRS': [BASE_DIR, 'templates'],
+                    'APP_DIRS': True,
+                    'OPTIONS': {
+                        'context_processors': [
+                            'django.template.context_processors.debug',
+                            'django.template.context_processors.request',
+                            'django.contrib.auth.context_processors.auth',
+                            'django.contrib.messages.context_processors.messages',
+                            'users.context_processors.message_form'
+                        ],
+                    },
+                },
+            ]
+
+    3.change time zone:
+        TIME_ZONE = 'America/Los_Angeles'
+
+    4.set crispy_forms bootstrap version:
+        CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+    5.set media folder:
+        MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+        MEDIA_URL = "media/"
+    
+    6.set login_url, login_redirect_url and logout_redirect_url:
+        LOGIN_REDIRECT_URL = 'music:home'
+        LOGIN_URL = 'users:login'
+        LOGOUT_REDIRECT_URL = 'music:landing-page'
+
+CHANGE PROJECT URLS.PY:
+    from django.contrib import admin
+    from django.urls import path, include
+
+    # NEEE TO IMPORT THESE:
+    from django.conf import settings
+    from django.conf.urls.static import static
+
+
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        path("", include("store.urls", namespace="store")),
+        path("", include("users.urls", namespace="users"))
+    ]
+    # IF ON DEBUG, ADD THESE:
+    if settings.DEBUG:
+        urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
