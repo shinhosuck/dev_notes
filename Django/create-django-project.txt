@@ -26,6 +26,9 @@ MAKE MIGRATIONS AND MIGRATE:
             -when updating database
             -after performing makemigrations
 
+INSTALL CRISPY FORMS:
+    pip install django-crispy-forms
+
 SETTINGS IN DJANGO:
     1.add your apps:
         INSTALLED_APPS = [
