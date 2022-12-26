@@ -27,8 +27,9 @@ MAKE MIGRATIONS AND MIGRATE:
             -after performing makemigrations
 
 INSTALL CRISPY FORMS:
-    pip install django-crispy-forms
-    {% load crispy_forms_tags %}
+    pip: pip install django-crispy-forms
+    template: {% load crispy_forms_tags %}
+    setting: 'crispy_forms', CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 SETTINGS IN DJANGO:
     1.add your apps:
