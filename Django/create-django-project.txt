@@ -28,6 +28,7 @@ MAKE MIGRATIONS AND MIGRATE:
 
 INSTALL CRISPY FORMS:
     pip install django-crispy-forms
+    {% load crispy_forms_tags %}
 
 SETTINGS IN DJANGO:
     1.add your apps:
