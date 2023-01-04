@@ -10,8 +10,10 @@ note: create a foloder initiate git.
 
 
 PUSH AN EXISTING REPOSITORY FROM THE COMMAND LINE:
-    git remote add origin https://github.com/shinhosuck/try-django.git
-
+	git remote add origin https://github.com/shinhosuck/try-django.git
+	git branch -M main
+    	git push -u origin main
+	
 ----IMPORTANT---
 sometimes bottom script does not work:
 -if does not work, just 'PUSH TO GIT REPOSITORY' in the bottom.
