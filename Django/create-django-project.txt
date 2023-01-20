@@ -1,3 +1,6 @@
+INSTALL PYTHON3 VIRTUAL ENVIRONMNET(venv)
+    sudo apt install python3-venv
+    
 CREATE PYTHON VIRTUAL ENVIRONMENT:
     commend: python3 -m venv venv
 
