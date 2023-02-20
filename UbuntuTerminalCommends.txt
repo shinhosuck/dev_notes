@@ -9,3 +9,15 @@ mkdir 'folder name'
 
 CREATE TEXT FILE:
 echo 'some text' folder-name.txt
+
+INSTALL VENV
+sudo apt install python3-venv 
+
+CREATE PYTHON VIRTUAL ENVIRONMENT
+python3 -m venv venv 
+
+DELETE TEXT FILE 
+sudo rm -r sample.txt 
+
+DELETE FOLDER 
+sudo rm -rf sample_folder

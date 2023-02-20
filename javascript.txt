@@ -1,0 +1,20 @@
+
+ // location of the scroll bar
+window.addEventListener('scroll', function(){
+    console.log(window.pageYOffset)
+})
+
+// full html document height
+console.log('Document Height:', document.body.scrollHeight)
+
+// windows view port height (vh)
+console.log('Window View Port Height:', window.innerHeight)
+
+// element offset height
+console.log('Main First Child Offset Height', main.children[0].offsetHeight)
+
+// element client height
+console.log('Main First Child Client Height', main.children[0].clientHeight)
+
+// window innerHeight and innerWidth
+console.log(window.innerHeight)
