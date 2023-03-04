@@ -1,0 +1,4 @@
+Change jpg and png to webp
+
+cwebp -q 60 linux.jpeg -o linux1.webp
+cwebp -q 60 linux.png -o linux.webp

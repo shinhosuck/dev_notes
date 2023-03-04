@@ -1,0 +1,24 @@
+1. truncate words
+
+p {
+	width: 100px; /* optional */
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: elipsis;
+	
+}
+
+
+2. css hover
+
+If the cube is directly inside the container:
+#container:hover > #cube { background-color: yellow; }
+
+If cube is next to (after containers closing tag) the container:
+#container:hover + #cube { background-color: yellow; }
+
+If the cube is somewhere inside the container:
+#container:hover #cube { background-color: yellow; }
+
+If the cube is a sibling of the container:
+#container:hover ~ #cube { background-color: yellow; }
