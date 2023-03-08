@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced CSS Concepts</title>
+
+
+
+    <style>
+        *::before,
+        *::after,
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: 'Helvetica Neue', sans-serif;
+            /* font-size: 16px; */
+            font-size: 3vw;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+        }
+
+        main {
+            
+            /* width: 70%;
+            max-width: 1000px; */
+            margin: 0 auto;
+            width: min(1000px, calc(70% + 100px));
+            border: 1px solid red;
+        }
+
+        .box {
+           width: clamp(300px, 50%, 500px);
+           /* font-size: clamp(0.9rem, 3vw, 18px); */
+           background: purple;
+           color: white;
+           line-height: 1.5;
+           letter-spacing: 0.06rem;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <!-- <h1>Advanced CSS Concepts</h1> -->
+    </header>
+
+    <main>
+        <div class="box1 box">
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eligendi, aperiam hic sapiente saepe non facere reprehenderit consectetur neque velit.</div>
+        </div>
+        
+    </main>
+</body>
+</html>

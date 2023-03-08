@@ -1,5 +1,4 @@
-1. truncate words
-
+/* TRUNCATE WORDS */
 p {
 	width: 100px; /* optional */
 	overflow: hidden;
@@ -9,16 +8,94 @@ p {
 }
 
 
-2. css hover
-
-If the cube is directly inside the container:
+/* CSS HOVER */
+/*If the element is directly inside the container:*/
 #container:hover > #cube { background-color: yellow; }
 
-If cube is next to (after containers closing tag) the container:
+/*If the element is next to (after containers closing tag) the container:*/
 #container:hover + #cube { background-color: yellow; }
 
-If the cube is somewhere inside the container:
+/*If the element is somewhere inside the container:*/
 #container:hover #cube { background-color: yellow; }
 
-If the cube is a sibling of the container:
+/*If the element is a sibling of the container:*/
 #container:hover ~ #cube { background-color: yellow; }
+
+/* MARGIN AND PADDING INLINE */
+body {
+	padding-inline: 1rem; /* shorthand for padding-inline-start, padding-inline-end */
+	/* padding: 0 1rem */
+	margin-inline: 1rem;  /* shorthand for margin-inline-start, margin-inline-end */
+	/* margin: 0 1rem */
+}
+
+/* RESPONSIVE DESIGN */
+/* types of Media Queries*/
+@media (min-width: 500px){
+	body {
+		background: black;
+	}
+}
+/* window with min-width */
+
+@media screen and (min-width: 500px){
+	body {
+		background: black;
+	}
+}
+/* device with screen and window with min-width */
+
+@media only screen and (min-width: 500px){
+	body {
+		background: black;
+	}
+}
+/* this one is not important */
+
+@media (orientation: portrait) {
+	/* if width is smaller than height */
+	body {
+		background: black;
+	}
+}
+
+@media (min-aspect-ratio: 1 / 1) {
+	/* if width is greater than height */
+	body {
+		background: purple;
+	}
+}
+
+@media (max-aspect-ratio: 1 / 1) {
+	/* if height is greater than width */
+	body {
+		background: purple;
+	}
+}
+
+@media (width > 500px) {
+	body {
+		background: orange;
+	}
+}
+
+@container (width >= 900px){
+	.sidebar-container {
+		background: purple;
+	}
+}
+
+
+/* DISPLAY GRID */
+.box {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	grid-auto-rows: 1fr;
+}
+
+/* CLAMP */
+.box {
+	width: clamp(200px, 40%, 500px);
+	width: min();
+	width: max();
+}
