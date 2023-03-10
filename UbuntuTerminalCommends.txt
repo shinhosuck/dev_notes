@@ -1,3 +1,4 @@
+
 COPY FOLDER TO EXTERNAL DRIVE FOLDER:
 cp -R 'folder name' /media/anderson/'WD Easystore'/'new folder name'
 
@@ -21,3 +22,7 @@ sudo rm -r sample.txt
 
 DELETE FOLDER 
 sudo rm -rf sample_folder
+
+NEW WINDOW TO OPEN IN THE MIDDLE OF THE SCREEN
+gsettings set org.gnome.mutter center-new-windows true
+gsettings set org.gnome.mutter center-new-windows false

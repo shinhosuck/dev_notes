@@ -1,0 +1,5 @@
+from root
+
+/etc/environment/
+
+add MUFFIN_NO_SHADOWS=1
