@@ -1,8 +1,0 @@
-git config user.name shinhosuck
-git config user.email shinhosuck1973@gmail.com
-
-git pull
-or -> git reset --mixed origin/main
-git add .
-git commit -m "update"
-git push origin main
