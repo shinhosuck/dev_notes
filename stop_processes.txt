@@ -1,0 +1,20 @@
+==============
+STOP PROCESSES
+==============
+
+See what is running:
+ps aux | grep -i apt
+
+Pick the id of running process:
+sudo kill "process_id"
+
+Force kill:
+sudo kill -9 "process_id"
+
+Kill all:
+sudo killall apt apt-get
+
+
+
+More info on:
+process 1061

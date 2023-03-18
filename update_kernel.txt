@@ -1,0 +1,12 @@
+===========================================
+How to upgrade Zorin 16.2 to a newer kernel
+===========================================
+
+sudo add-apt-repository ppa:cappelikan/ppa
+sudo apt update
+sudo apt install -y mainline
+sudo add-apt-repository "deb http://ca.archive.ubuntu.com/ubuntu jammy main"
+sudo apt update
+sudo apt install libssl3
+sudo add-apt-repository --remove "deb http://ca.archive.ubuntu.com/ubuntu jammy main"
+sudo apt update

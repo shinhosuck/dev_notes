@@ -135,3 +135,23 @@ img {
     transform: skewY(-5deg);
     background: linear-gradient(45deg, rgb(255, 45, 45), rgb(37, 37, 255), rgb(59, 255, 59));
 }
+
+/* OVERSCROLL-BEHAVIOR */
+
+html, body {
+	overscroll-behavior: none;
+/* auto/contain/none	*/
+}
+
+/* DIFFERENCE BETWEEN HEIGHT: 100VH AND HEIGHT: 100% */
+.nav-container {
+	position: fixed;
+	height: 100%;
+/* height of the container */
+}
+
+.nav-container {
+	position: fixed;
+	height: 100vh;
+/* height of the device */
+}
