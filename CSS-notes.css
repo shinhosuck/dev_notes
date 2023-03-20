@@ -116,6 +116,7 @@ body {
 /* OBJECT FIT */
 img {
 	object-fit: cover;
+	width: 100%;
 }
 
 /* ANGLES CONTAINER WITH BAVCKGROUND COLOR */
@@ -155,3 +156,4 @@ html, body {
 	height: 100vh;
 /* height of the device */
 }
+

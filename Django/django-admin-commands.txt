@@ -1,10 +1,18 @@
-ACCESSING DJANGO SUB-COMMENDS:
-    1. python3 -m django
-    2. django-admin
-    3. python3 manage.py- this commend shows "[auth]"
 
-    *These commends can be used with 'python manage.py commend'
-    	dumpdata
+DJANGO MANAGEMENT COMMANDS:
+
+    Available subcommands/CLI(command line interface):
+    -run using these commands:
+        python3 -m django, or
+        django-admin
+
+    [django]
+        check
+        compilemessages
+        createcachetable
+        dbshell
+        diffsettings
+        dumpdata
         flush
         inspectdb
         loaddata
@@ -24,8 +32,9 @@ ACCESSING DJANGO SUB-COMMENDS:
         test
         testserver
 
-    Available subcommands after starting a project(django-admin startproject):
-    *These commends can be used with 'python manage.py commend'
+    Available subcommands:
+    -run using these commands:
+        python3 manage.py "command"
 
     [auth]
         changepassword

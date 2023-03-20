@@ -1,12 +1,16 @@
-INSTALL PYTHON3 VIRTUAL ENVIRONMNET(venv)
+INSTALL PYTHON3 VIRTUAL ENVIRONMNET(venv):
     sudo apt install python3-venv
     
+INSTALL PIP3:
+    sudo apt install python3-pip
+
 CREATE PYTHON VIRTUAL ENVIRONMENT:
     commend: python3 -m venv venv
 
 INSTALL DJANGO:
     commend:python3 -m pip install django==3.2 or django(latest-version) or
             pip3 install django==3.2 or django(lates-version)
+            pip3 install django>=3.2,<3.3 -> greater than or equal 3.2 and less than 3
 
 START DJANGO PROJECT:
     commend:python3 -m django startproject new_project . or
@@ -14,7 +18,7 @@ START DJANGO PROJECT:
 
 CREATE REQUIREMENTS TEXT FILE:
     commend:python3 -m pip freeze > requirements.txt or
-            pip3 freeze requirements.txt
+            pip3 freeze > requirements.txt
 
 INSTALLING FROM REQUIREMENTS TEXT FILE:
     commend:pip3 install -r requirements.txt
@@ -86,7 +90,7 @@ CHANGE PROJECT URLS.PY:
     from django.contrib import admin
     from django.urls import path, include
 
-    # NEEE TO IMPORT THESE:
+    # NEEE TO IMPORT THESE ON DEBUG MODE:
     from django.conf import settings
     from django.conf.urls.static import static
 
@@ -99,3 +103,8 @@ CHANGE PROJECT URLS.PY:
     # IF ON DEBUG, ADD THESE:
     if settings.DEBUG:
         urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+OPEN A DJANGO PROJECT FOLDER USING TERMINAL:
+    (venv) anderson@zorin:$ cd Documents/django_project
+    (venv) anderson@zorin:~/Documents/django_project$ code.
