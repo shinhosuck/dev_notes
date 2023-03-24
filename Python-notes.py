@@ -3,4 +3,5 @@
 PYTHON NOTES
 ============
 '''
-print("hello world")
+m = 16 - (2 * 5) //( 3 + 1)
+print(m)

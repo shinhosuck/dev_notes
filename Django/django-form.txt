@@ -1,0 +1,45 @@
+from django import forms
+from articels.models import Article
+from articles.forms import ArticelForm
+
+=============================
+FORMS.FORM VS FORMS.MODELFORM
+=============================
+
+When using ModelForm:
+    class ArticleForm (forms.ModelForm):
+        class Meta:
+            model = Article
+            fields = ["title", "conent"]
+
+    -have to declare model and fields.
+
+
+When using Form:
+    class ArticleForm (forms.Form):
+        title = forms.CharField(max_length=100)
+        conent = forms.TextField()
+
+    -does not have to declare model and fields.
+
+===================
+FORM AUTHENTICATION
+===================
+
+clean_data on custom form:
+    if request.method = "POST":
+        author = request.user
+        title = form.clean_data.get("title")
+        content = form.clean_data.get("content")
+        article = Article.objects.create(author=user, title=title, content=content)
+        return redirect("articles:home")
+    return render(request, "articles/create.htmnl", context=None)
+
+is_valid() on built in form:
+    form = ArticleForm(request.POST or None)
+    if form.is_valid()
+        article = form.save(commit=False)
+        article.author = author
+        article.save()
+        return redirect("articles:home")
+    return render(request, "articles/create.htmnl", context={"form": form})
