@@ -12,7 +12,7 @@ CREATE REACT APP COMMAND-go to project dir:
 install: sudo npm i -g create-react-app "create folder"->react-app will be created inside of the folder-name could be anything
 
 2. This will install NPX(node package execute)-it will grab the modules/application from repo(better way).
-install: sudo npx i -g create-react-app "create folder"->react-app will be created inside of the folder-name could be anything
+install: npx create-react-app "create-folder"->react-app will be created inside of the folder-name could be anything
 
 Node.js Current:
 curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -

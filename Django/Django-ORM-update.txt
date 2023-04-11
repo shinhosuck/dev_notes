@@ -1,0 +1,269 @@
+==================
+WHAT IS ORM? PART1
+==================
+video1
+-ORM --> object relational mapper
+-this is like a mediater between programming language and the database.
+-when ORM recieves code from the programming language, converts the data and  passes database
+-when ORM recieves data from databse,  converts the data and passes to programming language.
+
+Example:
+    PYTHON -- > ORM -- > DATABASE
+    PYTHON < -- ORM < -- DATABASE
+
+    - between ORM and DATABASE, there an adapter/driver.
+    - it's job is to send data between ORM and DATABASE.
+    ORM -- > ADAPTER -- > DATABASE
+    ORM < -- ADAPTER < -- DATABASE
+
+
+========================
+SIMPLE OR QUERIES PART 2
+========================
+video2
+from articles.models import Article
+from django.db.models import Q
+
+-Long way:
+    articles = Article.objects.filter(title__startswith = "Hello world") |
+                Article.objects.filter(title__startswith = "hello world again") |
+
+-Much shorter way:
+    articles = Article.objects.filter(
+        Q(title__startswith = "Hello world") |
+        Q(title__startswith = "hello") |
+        Q(title__icontains = "h") |
+        Q(title__icontains = "hello")
+    )
+
+=========================
+SIMPLE AND QUERIES PART 3
+=========================
+video3
+def student_list_view(request):
+    teacher = Teacher.objects.get(pk=1)
+    students = Student.objects.filter(
+            Q(teacher__id = 1) & Q(first_name__startswith = "J")
+            # Q(last_name = "Daniel") & Q(age = 20)
+            # Q(first_name__startswith = "J") &
+            # Q(teacher = teacher) &
+            # Q(age = 20)
+        )
+    print(students)
+    print(connection.queries)
+    return render(request, "django_orm/students.html", context=None)
+
+
+===============================
+SIMPLE AND UNION QUERIES PART 4
+===============================
+video4
+def student_list_view(request):
+    query_set = Student.objects.all().values_list("last_name").union (
+        Teacher.objects.all().values_list("last_name") --> values_list() or values()
+    )
+    for query in query_set:
+        for q in query:
+            print(q)
+    print(connection.queries)
+    return HttpResponse( query_set)
+
+
+============================
+SIMPLE NOT(~) QUERIES PART 5
+============================
+video5
+def student_list_view(request):
+    students = Student.objects.filter(~Q(age__gt=20) & ~Q(teacher_id = 2))
+    # gte, lte, gt, lt -> >=, <=, >, <
+    print(connection.queries)
+    return HttpResponse(students)
+
+
+====================================
+SELECT AND OUTPUT INDIVIDUAL FIELD 6
+====================================
+video6
+def student_list_view(request):
+    students = Student.objects.filter(id=2).only("last_name", "age", "teacher")
+    print(students)
+    print(connection.queries)
+    return HttpResponse(students)
+
+
+#################################
+# PERFORMING SIMPLE RAW QUERIES 7
+#################################
+video7
+def student_list_view(request):
+    student_list = [
+    ]
+    # students = Student.objects.raw("SELECT id, last_name FROM django_orm_student WHERE id=1 LIMIT 2")
+    students = Student.objects.raw("SELECT id, last_name FROM django_orm_student WHERE first_name='Jack' LIMIT 1")
+    for s in students:
+        student_list.append({
+            "teacher" : s.teacher.last_name,
+            "first_name" : s.first_name,
+            "last_name" : s.last_name,
+            "age" : s.age
+        })
+
+    # raw() method must have id,
+    # students = Student.objects.get(id=1)
+    print( student_list)
+    print(students)
+    print(connection.queries)
+    return HttpResponse(students)
+
+########################
+# SIMPLE BYPASSING ORM 8 --> needs more info
+########################
+video8
+def student_list_view(request):
+    cursor = connection.cursor()
+    # cursor.execute("SELECT * FROM django_orm_student")
+    cursor.execute("SELECT * FROM django_orm_student WHERE age > 20 ")
+    # here can use mathematical operators.
+    data = cursor.fetchall()
+    key = [col[0] for col in cursor.description]
+    values = [dict(zip(key,list(d))) for d in data]
+    print(connection.queries)
+    print(values)
+    context = {"values": values}
+    return render(request, "django_orm/students.html", context)
+
+
+#####################
+# MODEL INHERITANCE 9
+#####################
+video9
+-There are 3 types:
+    1. Abstract model
+    2. Multi-table model inheritance
+    3. Proxy model
+
+1. Abstract model:
+-this model does not created in the database
+-only teh child classes are create in the database
+-Abstract model is used when all child models have same information as ParentModel
+
+    class ParentModel(models.Model):
+        first_name = models.CharField()
+        last_name = models.Charfield()
+        age = models.IntegerFiled()
+
+        class Meta:
+            abstract = True
+            ordering = ["title"]
+
+    class ChildModel1(ParentModel):
+        title = models.Charfield()
+        author = models.Charfield()
+
+        class Meta(ParentModel.Meta):
+            ordering = ["-created"]
+
+    class ChildModel2(ParentModel):
+        title = models.Charfield()
+        author = models.Charfield()
+
+    class ChildModel3(ParentModel):
+        title = models.Charfield()
+        author = models.Charfield()
+
+# Multi-table model inheritance
+class Article(models.Model):
+    title = models.CharField(max_length=50)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+
+class Body(Article):
+    book = models.OneToOneField(Book, on_delete=models.CASCADE,
+                                parent_link=True, primary_key=True)
+    content = models.TextField()
+
+    def __str__(self):
+        return self.content
+
+
+# Proxy model
+-Look into it more
+-video: 9
+
+
+#############################################
+TOWARD SQL OPTIMIZATION: Django-debug-toolbar 10
+#############################################
+video10
+-In project urls:
+    import debug_toolbar
+    from django.urls import path, include
+
+    urlpatterns = [
+        path('__debug__/', include('debug_toolbar.urls'))
+    ]
+
+-In settings:
+
+    INSTALLED_APPS = ['debug_toolbar']
+
+    MIDDLEWARE = [
+        'django.middleware.security.SecurityMiddleware',
+        'django.contrib.sessions.middleware.SessionMiddleware',
+        'django.middleware.common.CommonMiddleware',
+        'django.middleware.csrf.CsrfViewMiddleware',
+        "debug_toolbar.middleware.DebugToolbarMiddleware",
+        # add it after "CsrfViewMiddleware"
+    ]
+
+    INTERNAL_IPS = ["127.0.0.1"]
+
+    DEBUG_TOOLBAR_PANELS = [
+        'debug_toolbar.panels.history.HistoryPanel',
+        'debug_toolbar.panels.versions.VersionsPanel',
+        'debug_toolbar.panels.timer.TimerPanel',
+        'debug_toolbar.panels.settings.SettingsPanel',
+        'debug_toolbar.panels.headers.HeadersPanel',
+        'debug_toolbar.panels.request.RequestPanel',
+        'debug_toolbar.panels.sql.SQLPanel',
+        'debug_toolbar.panels.staticfiles.StaticFilesPanel',
+        'debug_toolbar.panels.templates.TemplatesPanel',
+        'debug_toolbar.panels.cache.CachePanel',
+        'debug_toolbar.panels.signals.SignalsPanel',
+        'debug_toolbar.panels.redirects.RedirectsPanel',
+        'debug_toolbar.panels.profiling.ProfilingPanel',
+    ]
+
+###############################
+DJANGO INHERITANCE OPTIMIZATION 11
+###############################
+video11
+
+###########################
+DJANGO MULTI DATABASE SETUP 12
+###########################
+video12
+
+#########################
+TRANSACTION AUTOMICITY 13
+#########################
+video13
+
+#########################
+IMPORT CSV TO MODEL 14
+#########################
+video14
+
+#####################
+DJANGO AGGREGATION 15
+#####################
+video15
+
+#######################################
+CREATE DJANGO FIXTURE FROM EXCEL/CSV 16
+#######################################
+video16

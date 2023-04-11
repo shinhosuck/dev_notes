@@ -1,0 +1,118 @@
+=============================
+INSTALL DJANGO REST FRAMEWORK
+=============================
+-pip3 install djangorestframework
+
+==================================
+ADD REST FRAMEWORK TO THE SETTINGS
+==================================
+NSTALLED_APPS = [
+
+    'rest_framework',
+    'rest_framework.authtoken'
+
+]
+
+=================================================
+ADD PERMISSION AND AUTHENTICATION TO THE SETTINGS
+=================================================
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        # 'rest_framework.permissions.IsAuthenticated',
+        # 'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # 'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
+
+=====================
+CREATE SERIALIZERS.PY
+=====================
+from rest_framework import serializers
+from products.models import Product
+
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ["id", "title", "content", "price"]
+
+======================
+REST API FUNCTION VIEW
+======================
+from django.http import JsonResponse
+from products.models import Product
+
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from products.serializers import ProductSerializer
+
+
+"""
+This id now DRF API view,
+because @api_view and Response()
+"""
+@api_view(["GET"])
+def home_view(request):
+    querySet = Product.objects.all().order_by("title")
+    data = ProductSerializer(querySet, many=True)
+    return Response(data.data)
+
+
+@api_view(["GET"])
+def detail_view(request, pk):
+    querySet = Product.objects.get(pk=pk)
+    data = ProductSerializer(querySet, many=False)
+    return Response(data.data)
+
+
+# def detail_view_backup(request, pk):
+#     product = Product.objects.get(pk=pk)
+#     data = model_to_dict(product)
+#     return JsonResponse(data)
+
+
+@api_view(['POST'])
+def create_view(request):
+    print(request.auth)
+    serializer = ProductSerializer(data=request.data)
+    if serializer.is_valid():
+        data = serializer.save()
+        print(data)
+        return Response(serializer.data, status=201)
+    return Response(data={'bad request': 'not a good data'}, status=400)
+
+=========================
+REST FRAMEWORK CLASS VIEW
+=========================
+from rest_framework import generics
+from .serializers import ProductSerializer
+from .models import Product
+
+
+class ProductDetailAPIView(generics.RetrieveAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+
+class ProductCreateAPIView(generics.CreateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+
+class ProductListAPIView(generics.ListAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+
+class ProductDeleteAPIView(generics.DestroyAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+
+class ProductUpdateAPIView(generics.UpdateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer

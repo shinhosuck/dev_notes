@@ -11,6 +11,13 @@ note: create a foloder initiate git.
 
 PUSH AN EXISTING REPOSITORY FROM THE COMMAND LINE:
 	git remote add origin https://github.com/shinhosuck/try-django.git
+	
+-if username or email have not been created:
+	git config user.name shinhosuck
+	git config user.email shinhosuck1973@gmail.com
+
+	git add .
+	git commit -m "update"
 	git branch -M main
     	git push -u origin main
 	
@@ -31,3 +38,16 @@ note: once the changes has been made to the directory.
 
 CLONE REPOSITORY:
     git clone https://github.com/shinhosuck/some_project.git
+
+
+DELETE LAST PUSH:
+    anderson@zorin:~/Documents/try-django-full-tutorial$ git log
+
+    anderson@zorin:~/Documents/try-django-full-tutorial$ git log
+    commit 9da8136bc069abc0d601508818d0e08d3f2ea774 (HEAD -> main, origin/main, origin/HEAD)
+    Author: shinhosuck <shinhosuck1973@gmail.com>
+    Date:   Fri Mar 31 06:08:37 2023 +0800
+
+    anderson@zorin:~/Documents/try-django-full-tutorial$ git reset 9da8136bc069abc0d601508818d0e08d3f2ea774 --hard
+
+    -this deletes that push
