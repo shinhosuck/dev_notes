@@ -40,3 +40,85 @@ console.log(window.innerHeight)
             }
         }
     })
+
+// window.onload
+window.addEventListener('DOMContentLoaded', function(){
+    console.log('window loaded')
+})
+
+
+/*=====USEFUL METHODS=====*/
+map()
+filter()
+reduce()
+find()
+Set() // let set1 = new Set()
+join('')
+includes()
+contains()
+delete someArray[index]
+pop()
+shift()
+const year = new Date().getFullYear()
+push()
+new Set()
+firstElementChild
+lastElementChild
+peviousElementSibling
+nextElementSibling
+parentElement
+children
+onclick
+onsubmit
+
+const newItems = [...new Set(menu.map((item)=> {
+        return item.category
+    }))]
+
+// get month/date/year
+const getMonthDateYear = function() {
+    const data = new Date()
+    const result = `${data.getMonth()+1}/${data.getDate()}/${data.getFullYear()}`
+    console.log(result)
+}
+// getMonthDateYear()
+
+
+const linksContainer = document.querySelector('.nav-links-container')
+
+const navHeight = linksContainer.getBoundingClientRect().height
+// console.log(navHeight)
+
+// distance from top to the element
+let position = element.offsetTop
+
+// used with hre='#main-container'
+// scroll down button
+scrollDownBtn.addEventListener('click', function(e){
+    e.preventDefault()
+    const elementId = e.currentTarget.getAttribute('href').slice(1)
+    const element = document.querySelector(`#${elementId}`)
+    const position = element.offsetTop
+    window.scrollTo({left:0, top:position-83})
+})
+
+
+// error when import a module
+`caught SyntaxError: Cannot use import statement`
+
+// need to set type='module'
+`<script type='module' src="./main.js"></script>`
+
+
+// Fetch Data
+const url = 'https://course-api.com/react-tabs-project'
+const FetchData = async()=> {
+    const response = await fetch(url)
+    const data = await response.json()
+    console.log(data)
+}
+FetchData()
+
+
+// Get Random Number
+const randomNum = Math.floor(Math.random()*1000000)

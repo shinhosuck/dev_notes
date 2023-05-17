@@ -77,7 +77,6 @@ def detail_view(request, pk):
 
 @api_view(['POST'])
 def create_view(request):
-    print(request.auth)
     serializer = ProductSerializer(data=request.data)
     if serializer.is_valid():
         data = serializer.save()

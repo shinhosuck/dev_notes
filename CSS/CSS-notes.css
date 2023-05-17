@@ -86,8 +86,17 @@ body {
 	}
 }
 
+/*
+====
+GRID
+====
+*/
 
-/* DISPLAY GRID */
+.container {
+	display: grid;
+	place-items: center;
+}
+
 .box {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -156,4 +165,3 @@ html, body {
 	height: 100vh;
 /* height of the device */
 }
-

@@ -26,3 +26,6 @@ sudo rm -rf sample_folder
 NEW WINDOW TO OPEN IN THE MIDDLE OF THE SCREEN
 gsettings set org.gnome.mutter center-new-windows true
 gsettings set org.gnome.mutter center-new-windows false
+
+REFRESH SNAP STORE
+snap-store --quit && sudo snap refresh snap-store
