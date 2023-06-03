@@ -62,6 +62,8 @@ shift()
 const year = new Date().getFullYear()
 push()
 new Set()
+substr(0, 100)
+replaceAll(' ','')
 firstElementChild
 lastElementChild
 peviousElementSibling
@@ -70,6 +72,7 @@ parentElement
 children
 onclick
 onsubmit
+window.location.reload()
 
 const newItems = [...new Set(menu.map((item)=> {
         return item.category
