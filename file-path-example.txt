@@ -1,11 +1,11 @@
-File path example
+File path example (unix)
    
 /   = Root directory
 .   = This location
 ..  = Up a directory
 ./  = Current directory
 ../ = Parent of current directory
-../../ = Two directories backwards
+../../ = Two directories up
 
 
 

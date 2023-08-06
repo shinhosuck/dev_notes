@@ -1,0 +1,32 @@
+url = https://askubuntu.com/questions/1170688/how-to-completely-remove-snap-and-replace-with-flatpak
+
+
+
+
+
+Remove Snap
+
+# Stop snapd services
+sudo systemctl stop snapd && sudo systemctl disable snapd
+
+# Purge snapd
+sudo apt purge -y snapd gnome-software-plugin-snap
+
+# Remove no longer needed folders
+rm -rf ~/snap
+sudo rm -rf /snap /var/snap /var/lib/snapd /var/cache/snapd /usr/lib/snapd
+
+# Prevent reinstall
+sudo apt-mark hold snap snapd
+cat <<EOF | sudo tee /etc/apt/preferences.d/snapd
+Package: snapd
+Pin: origin *
+Pin-Priority: -1
+EOF
+
+
+Install Flatpak
+
+sudo apt install flatpak
+sudo apt install gnome-software-plugin-flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo

@@ -57,10 +57,11 @@ join('')
 includes()
 contains()
 delete someArray[index]
-pop()
-shift()
+pop() -> removes from end of an array
+shift() -> removes from start of an array
 const year = new Date().getFullYear()
-push()
+push() -> adds to end of an array
+unshift() -> adds to beginning of an array
 new Set()
 substr(0, 100)
 replaceAll(' ','')
@@ -73,6 +74,8 @@ children
 onclick
 onsubmit
 window.location.reload()
+Object.keys()
+Object.values()
 
 const newItems = [...new Set(menu.map((item)=> {
         return item.category
