@@ -150,7 +150,7 @@ img {
 
 html, body {
 	overscroll-behavior: none;
-/* auto/contain/none	*/
+/* auto/contain/none	=> options */
 }
 
 /* DIFFERENCE BETWEEN HEIGHT: 100VH AND HEIGHT: 100% */
@@ -165,3 +165,14 @@ html, body {
 	height: 100vh;
 /* height of the device */
 }
+
+/* anchor tag: disable blue background */
+a {
+	-webkit-tap-highlight-color: transparent !important;
+}
+
+
+
+
+
+

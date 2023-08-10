@@ -76,6 +76,7 @@ onsubmit
 window.location.reload()
 Object.keys()
 Object.values()
+items.indexOf(item)
 
 const newItems = [...new Set(menu.map((item)=> {
         return item.category
