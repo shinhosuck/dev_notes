@@ -77,6 +77,7 @@ window.location.reload()
 Object.keys()
 Object.values()
 items.indexOf(item)
+new Boolean()
 
 const newItems = [...new Set(menu.map((item)=> {
         return item.category

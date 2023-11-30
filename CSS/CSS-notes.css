@@ -4,9 +4,17 @@ p {
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: elipsis;
-	
 }
 
+/* BLUR */
+.container {
+	background: url('background-img.jpg);
+	filter: blur(10px)
+}
+
+.text-container {
+	back-drop: blur(10px)
+}
 
 /* CSS HOVER */
 /*If the element is directly inside the container:*/

@@ -1,5 +1,5 @@
 Sync to GitHub Repository:
 
-git fetch origin master OR MAIN
+git fetch origin main
 git reset --hard FETCH_HEAD
 git clean -df

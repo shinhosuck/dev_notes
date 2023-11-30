@@ -10,9 +10,6 @@
 <!-- This will install NPM(node package manager) locally. -->
 install: sudo npm i -g create-react-app "create folder"->react-app will be created inside of the folder-name could be anything
 
-<!-- This will install NPX(node package execute)-it will grab the modules/application from repo(better way). -->
-install: npx create-react-app "create-folder"->react-app will be created inside of the "create-folder"-name could be anything
-
 <!-- NODE JS CURRENT: -->
 curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 sudo apt install nodejs
@@ -20,3 +17,6 @@ sudo apt install nodejs
 <!-- NODE JS LTS: -->
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt-get install -y nodejs
+
+<!-- This will install NPX(node package execute)-it will grab the modules/application from repo(better way). -->
+install: npx create-react-app "create-folder"->react-app will be created inside of the "create-folder"-name could be anything
