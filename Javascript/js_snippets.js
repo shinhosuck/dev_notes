@@ -20,11 +20,9 @@ console.log('Main First Child Client Height', main.children[0].clientHeight)
 console.log(window.innerHeight)
 
 // redirect to new url
-   // let data = '{{ data }}'
-  // window.location.href = `https://www.google.com/search?q=${data}`
-  // window.open(
- 	//     `https://www.google.com/search?q=${data}`, '_blank'
- // )
+   let data = 'dog'
+  window.location.href = `https://www.google.com/search?q=${data}`
+  window.open(`https://www.google.com/search?q=${data}`, '_blank')
 
   // removes nav items when clicked on window
     window.addEventListener("click", function(event){
@@ -41,13 +39,18 @@ console.log(window.innerHeight)
         }
     })
 
-// window.onload
+// DOMContentLoaded => only when DOM content is loaded without css, images, and etc.
 window.addEventListener('DOMContentLoaded', function(){
     console.log('window loaded')
 })
 
+//load => when DOM content loaded including css, images, and etc.
+window.addEventListener('laod', function(){
+    console.log('window loaded')
+})
 
 /*=====USEFUL METHODS=====*/
+window.scrollTo() => takes 2 arguments (x, y) or just {top:value} or {left:value}
 map()
 filter()
 reduce()
@@ -56,6 +59,8 @@ Set() // let set1 = new Set()
 join('')
 includes()
 contains()
+slice()
+split()
 delete someArray[index]
 pop() -> removes from end of an array
 shift() -> removes from start of an array
@@ -78,6 +83,15 @@ Object.keys()
 Object.values()
 items.indexOf(item)
 new Boolean()
+
+const path = e.composePath()
+path.some((element)=>console.log(element))
+
+const ele = document.createElement('div')
+const content = document.createTextNode('hello world')
+append()
+prepend()
+insertBefore()
 
 const newItems = [...new Set(menu.map((item)=> {
         return item.category
@@ -111,7 +125,7 @@ scrollDownBtn.addEventListener('click', function(e){
 })
 
 
-// error when import a module
+// error when importing a module
 `caught SyntaxError: Cannot use import statement`
 
 // need to set type='module'
@@ -130,3 +144,11 @@ FetchData()
 
 // Get Random Number
 const randomNum = Math.floor(Math.random()*1000000)
+
+// Get formatted year, month, day, date, and time
+const date = Date();
+let d = new Date(Date.parse(date));
+console.log(d.toDateString(),d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}));
+
+// Document loaded
+document.readyState === 'complete'
