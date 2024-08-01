@@ -29,6 +29,10 @@ NEW WINDOW TO OPEN IN THE MIDDLE OF THE SCREEN
 gsettings set org.gnome.mutter center-new-windows true
 gsettings set org.gnome.mutter center-new-windows false
 
+PLACE TRASH CAN ON THE WINDOW
+gsettings set org.gnome.shell.extensions.ding show-trash true
+gsettings set org.gnome.shell.extensions.ding show-trash false
+
 REFRESH SNAP STORE
 snap-store --quit && sudo snap refresh snap-store
 Or

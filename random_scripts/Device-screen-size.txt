@@ -1,0 +1,4 @@
+Desktop displays from 1920×1080 through 1280×720
+Tablet displays from 1279×800 through 600×962
+Mobile displays from 599×896 through 360×640
+

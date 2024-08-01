@@ -29,3 +29,9 @@ from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
 
 6. Navigate to 'Web' page and copy your web address 'pawpals.pythonanywhere.com' and add it to allowed url in the settings.py
+
+
+COPY AND PASTE FROM THE TERMINAL:
+
+copy: Ctrl-C 
+paste: Ctrl-V

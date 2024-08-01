@@ -1,0 +1,12 @@
+STRIPE_PAIRING_CODE: extol-warm-tops-upheld
+
+STRIPE_ACCOUNT_ID: acct_1NMiBGGc2BRGe9DE
+
+STRIPE_WEBHOOK_KEY: whsec_6687e864ee5553cdd76003b259c456af97f2ba119a6e61753b7eb6d08483bde4
+
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51NMiBGGc2BRGe9DEdQB4uFXo4cXsyIrsmOZWEqzjcEwncSEkSXFmpChhckGDXA63HT5rScE6xFmZkvgvCKvfeeEP00lbHOx2KK'
+
+STRIPE_SECRET_KEY = 'sk_test_51NMiBGGc2BRGe9DEuMhhtg7J7gJSyrkLWj4YQWyei8Kpc3NIN7i7QESI03yaxZTnxSHt8SaZT2R7qPAbV8jqedBF0013Eb2BBn'
+
+anderson@mint-desktop:~/DEV/Stripe-Payment$ stripe listen --forward-to localhost:8000/stripe/webhook/
+

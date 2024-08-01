@@ -1,0 +1,12 @@
+sudo sh -c 'rm -rf /var/lib/snapd/cache/*'
+
+KILL SNAP:
+
+Kill individual ID:
+$ ps aux | grep snap OR ps auxww | grep snap-store
+$ kill <process id>
+$ sudo snap refresh snap-store
+
+Kill all:
+$ killall snap-store
+$ snap refresh

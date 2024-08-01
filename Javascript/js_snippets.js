@@ -83,6 +83,7 @@ Object.keys()
 Object.values()
 items.indexOf(item)
 new Boolean()
+focus()
 
 const path = e.composePath()
 path.some((element)=>console.log(element))

@@ -16,7 +16,10 @@ sudo apt install nodejs
 
 <!-- NODE JS LTS: -->
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-sudo apt-get install -y nodejs
+sudo apt install -y nodejs
 
 <!-- This will install NPX(node package execute)-it will grab the modules/application from repo(better way). -->
 install: npx create-react-app "create-folder"->react-app will be created inside of the "create-folder"-name could be anything
+
+<!-- Install react-router-dom -->
+npm install react-router-dom

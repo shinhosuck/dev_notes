@@ -11,18 +11,24 @@ request.GET
 request.POST
 request.FILES
 order_by()
-only()
-defer()
-exclude()
+validate_password()
+check_password()
+set_password()
 render_to_string()
 clean_data()
 get_host()
-distinct()
-
-set_password()
+update()
+validated_data()
+OrderDict()
+one_day_ago = timezone.now() - timedelta(days=1)
 create_user()
     -User.objects.create_user()
 
+request.data
+only()
+defer()
+exclude()
+distinct()
 aggregate()
 	-Product.objects.aggregate(max_price=Max('price'), min_price=Min('price'))
 
@@ -39,3 +45,17 @@ prefetch_related()
 # Difference between "aggregate()" and "annotate()":
 	1. .aggregate() generates calculated summary of entire QuerySet.
 	2. annotate() generates calculated summary of indivudual items in the QuerySet.
+
+
+ # objs = Topic.objects.filter(total_post__lte = 1).annotate(post_count=Count('post')).values('post_count', 'total_post')
+    # objs.update(total_post=F('total_post'))
+    # print(objs)
+    # print(connection.queries)
+
+
+from django.http import Http404
+
+try:
+    obj = Model.objects.get(slug=slug)
+except Model.DoesNotExist:
+    raise Http404
