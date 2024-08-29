@@ -1,3 +1,14 @@
+// Get csrf token from the django form
+const csrf = document.getElementsByName('csrfmiddlewaretoken')
+console.log(csrf[0].value)
+
+ // searchParams
+ const url = new URL(document.URL)
+ const search = url.searchParams.get('q')
+ or
+ const url = obj.request.url;
+ const newUrl = new URL(url)
+ const search = newUrl.searchParams.get('q');
 
  // location of the scroll bar
 window.addEventListener('scroll', function(){
@@ -55,7 +66,6 @@ map()
 filter()
 reduce()
 find()
-Set() // let set1 = new Set()
 join('')
 includes()
 contains()
@@ -79,13 +89,25 @@ children
 onclick
 onsubmit
 window.location.reload()
+window.location -> gives location object
 Object.keys()
 Object.values()
 items.indexOf(item)
 new Boolean()
 focus()
+typeof
+someValue instanceof Object
+sort()
+Array.from()
+console.dir(obj)
+toFixed(2) -> similar to python round()
+window.addEventListener('DomContentLoaded', loadContent) -> as soon as the DOM loads, loadContent will be invoked.
+createDocumentFragment() -> use this with document.createElement(), append the element to, similar to React.Fragment
+await Promise.all(ids.map((id)=>getPosts(id))) -> this gets all the promises at once,but one fails, all fails
+await Promise.allSettled(ids.map((id)=>getPosts(id))) -> this get all the promises at once,failed items are omitted.
+Array.isArray(someValue)
 
-const path = e.composePath()
+const path = e.composedPath()
 path.some((element)=>console.log(element))
 
 const ele = document.createElement('div')
@@ -93,6 +115,14 @@ const content = document.createTextNode('hello world')
 append()
 prepend()
 insertBefore()
+scrollIntoView()
+
+// HISTORY OBJECT
+history.back() -> history object back() method -> go back to previous page
+history.pushState()
+history.replaceState()
+
+container.insertAdjacentHTML('afterbegin', alertMessage) -> inserts alertMessage html element beginning of the container
 
 const newItems = [...new Set(menu.map((item)=> {
         return item.category
@@ -153,3 +183,26 @@ console.log(d.toDateString(),d.toLocaleTimeString([], {hour: '2-digit', minute:'
 
 // Document loaded
 document.readyState === 'complete'
+
+// for(const i in obj) && for(const i of arrayObjs)
+const obj = { name: "jack", age: 33 };
+const arrayObj = [1, 2, 3, 4, 5];
+
+// dictionary/Obj
+for (const i in obj) {
+    console.log(obj[i]);
+}
+
+// list/array obj
+for (const i of arrayObj) {
+    console.log(i);
+}
+
+
+
+
+
+
+
+
+

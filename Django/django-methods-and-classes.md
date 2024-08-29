@@ -2,6 +2,16 @@ from django.template.loader import render_to_string
 from django.http import HttpResponse
 from django.db.models import Sum, Max, Avg, Min
 
+# ajax specific
+
+def some_view(request):
+    content_type = request.headers.get('Content-Type') -> gives request content type (text/plain, application/json...)
+    body = json.loads(reqest.body.decode('utf-8')) -> gives ajax request POST body
+    return JsonResponse({}, status=200)
+
+# end
+
+
 F()
 Q()
 connection

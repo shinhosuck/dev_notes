@@ -60,6 +60,7 @@ uuid.uuidv4()
 # Add comma to numbers
 price = 2500
 '{0:,}'.format(price)
+f'{some_value:,.2f}'
 
 # List methods
 extend()
