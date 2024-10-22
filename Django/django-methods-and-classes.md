@@ -69,3 +69,6 @@ try:
     obj = Model.objects.get(slug=slug)
 except Model.DoesNotExist:
     raise Http404
+
+<!-- get app_names with request -->
+app_names = request.resolver_match

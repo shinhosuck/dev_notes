@@ -68,9 +68,10 @@ reduce()
 find()
 join('')
 includes()
-contains()
+contains() // check if a node, childnode, childnode's childnode and so forth are in.
 slice()
 split()
+splice(index, num_of_item_to_remove)
 delete someArray[index]
 pop() -> removes from end of an array
 shift() -> removes from start of an array
@@ -92,6 +93,7 @@ window.location.reload()
 window.location -> gives location object
 Object.keys()
 Object.values()
+Object.assign(target, source)
 items.indexOf(item)
 new Boolean()
 focus()
@@ -109,6 +111,7 @@ Array.isArray(someValue)
 
 const path = e.composedPath()
 path.some((element)=>console.log(element))
+window.history.replaceState({state: null}, '', 'sign-in')
 
 const ele = document.createElement('div')
 const content = document.createTextNode('hello world')

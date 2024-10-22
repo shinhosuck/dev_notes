@@ -47,10 +47,16 @@ acpi_backlight=vendor
  - -name => case sensitive
 find -iname "file or folder name'
 
+# Remove apt lists and update => useful when there is a bad header
+sudo rm -rf /var/lib/apt/lists/* && sudo apt-get update
 
+# Disable snap auto refresh:
+snap refresh --hold -> all snap
+snap refresh --hold=24h firefox -> per snap app for period of time
 
-
-
+# Unable snap auto refresh
+snap refresh --unhold
+snap refresh --unhold firefox -> per snap app
 
 
 
