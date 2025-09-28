@@ -1,0 +1,52 @@
+
+# Installation:
+pip3 install django-debug-toolbar
+
+# Important notes:
+-ensure these exists:
+     TEMPLATES = [
+        {
+            "BACKEND": "django.template.backends.django.DjangoTemplates",
+            "APP_DIRS": True,
+            # ...
+        }
+    ]
+
+    INSTALLED_APPS = [
+        # ...
+        "django.contrib.staticfiles",
+        # ...
+    ]
+
+# Add to INSTALLED APPS:
+-ensure that 'django.contrib.staticfiles' is in your INSTALLED_APPS setting
+
+INSTALLED_APPS = [
+    # ...
+    "debug_toolbar",
+    # ...
+]
+
+
+# Import debug-toolbar:
+from debug_toolbar.toolbar import debug_toolbar_urls
+
+urlpatterns = [
+    # ... the rest of your URLconf goes here ...
+] + debug_toolbar_urls()
+
+
+# Add to middleware:
+MIDDLEWARE = [
+    # ...
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
+    # ...
+]
+
+
+# Configure IP:
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]
