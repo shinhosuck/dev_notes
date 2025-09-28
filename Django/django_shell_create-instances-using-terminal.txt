@@ -1,4 +1,5 @@
 OPEN DJANGO SHELL
+	clear shell: control+l
     commend:python3 manage.py shell
 
 IMPORT CLASS FROM APP MODELS.PY:

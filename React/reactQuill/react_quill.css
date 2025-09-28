@@ -1,0 +1,69 @@
+/* React Quill */
+.quill {
+  display: grid;
+  align-self: start;
+  gap: 1.5rem;
+}
+
+.ql-toolbar.ql-snow {
+  padding: 0 !important;
+}
+
+.ql-toolbar, 
+.ql-snow {
+  border: none !important;
+  display: none;
+}
+
+.ql-toolbar {
+  justify-self: start;
+}
+
+.ql-editor.ql-blank::before {
+  left: 0 !important;
+}
+
+.ql-editor {
+  padding: 0 !important;
+}
+
+@media (hover) {
+  .ql-clean:hover,
+  .ql-list:hover,
+  .ql-link:hover,
+  .ql-underline:hover,
+  .ql-italic:hover,
+  .ql-bold:hover,
+  .ql-header:hover {
+    outline: 1px solid var(--black-70) !important;
+    border-radius: 3px;
+  }
+}
+
+.ql-container {
+  display: grid;
+  align-content: start;
+  align-items: start;
+}
+
+.ql-editor, 
+.ql-blank {
+  display: grid;
+  align-content: start;
+  align-items: start;
+  overflow: hidden;
+  font-size: 1rem;
+} 
+
+.ql-editor > *, 
+.ql-blank > * {
+  overflow: hidden;
+}
+
+.ql-editor > p, 
+.ql-blank > p {
+  font-size: 1rem !important;
+  color: var(--black-20);
+  letter-spacing: 0.03rem;
+}
+/* End */

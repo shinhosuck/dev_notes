@@ -17,3 +17,8 @@ password: EricRaiza3232014
 username: cloudmusic
 email: emawebdev3232014@gmail.com
 password: EricRaiza3232014
+
+# Mammoth Bar
+username: mammothbar
+email: ericanderson3262014@gmail.com
+password: RaizaEric3232014

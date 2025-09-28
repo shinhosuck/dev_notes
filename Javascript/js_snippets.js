@@ -1,3 +1,8 @@
+// loop FormData()
+ for (const obj of formData.entries()) {
+    console.log(obj)
+}
+
 // Get csrf token from the django form
 const csrf = document.getElementsByName('csrfmiddlewaretoken')
 console.log(csrf[0].value)
@@ -5,8 +10,9 @@ console.log(csrf[0].value)
  // searchParams
  const url = new URL(document.URL)
  const search = url.searchParams.get('q')
+ // searchParams = URLSearchParams()
  or
- const url = obj.request.url;
+ const url = document.URL
  const newUrl = new URL(url)
  const search = newUrl.searchParams.get('q');
 

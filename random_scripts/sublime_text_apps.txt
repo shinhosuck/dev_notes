@@ -1,0 +1,12 @@
+Apps:
+
+1. Material Theme
+2. Predawn
+3. BracketHighlighter
+4. CSS Snippets
+5. Emmet
+6. FileIcons
+7. JS Snippets
+8. Package Control
+9. React ES6 Snippets
+10. SideBarEnhancements

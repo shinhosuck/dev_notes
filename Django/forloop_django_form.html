@@ -1,0 +1,23 @@
+ <form class="profile-form" action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="profile-input-container">
+        {% for field in form %}
+            <div class="profile-input-row">
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <ul class='errorlist'>
+                            <li>{{ error}}</li>
+                        </ul>
+                    {% endfor %}
+                {% endif %}
+                {{ field.label_tag }}
+                {{ field }}
+                <span class="helptext">{{ field.help_text }}</span>
+            </div>
+        {% endfor %}
+    </div>
+    <button class="profile-form-update-btn" type="submit">
+        <span>Next</span>
+        <i class="fas fa-arrow-right"></i>
+    </button>
+</form>

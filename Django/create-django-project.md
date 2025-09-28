@@ -14,7 +14,7 @@ INSTALL DJANGO:
 
 START DJANGO PROJECT:
     commend:python3 -m django startproject new_project . or
-            django-admin startproject new_project .
+            django-admin startproject new_project
 
 CREATE REQUIREMENTS TEXT FILE:
     commend:python3 -m pip freeze > requirements.txt or
